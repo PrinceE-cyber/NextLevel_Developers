@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Week 1 · Day 1 — HTML Structure</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #080810;
+    --surface: #0f0f1c;
+    --card: #13131f;
+    --border: #1c1c30;
+    --accent: #ff6b35;
+    --blue: #4da6ff;
+    --green: #3dff8f;
+    --yellow: #ffd166;
+    --muted: #52526e;
+    --text: #d4d4e8;
+    --white: #f0f0ff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 52px 24px 44px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 600px 300px at 50% -80px, rgba(255,107,53,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .journey-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--accent), #ff9a6b);
+    color: #000;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 10vw, 80px);
+    color: var(--white);
+    letter-spacing: 3px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-message {
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.7;
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+    text-align: left;
+  }
+  .hero-message strong { color: var(--white); }
+
+  /* ── LAYOUT ── */
+  .wrap {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* ── SECTION HEADER ── */
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 44px 0 18px;
+  }
+  .sec-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    background: rgba(255,107,53,0.1);
+    border: 1px solid rgba(255,107,53,0.25);
+    padding: 3px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .sec-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .sec-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 14px;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-title .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .card-title .dot.blue { background: var(--blue); }
+  .card-title .dot.green { background: var(--green); }
+  .card-title .dot.yellow { background: var(--yellow); }
+  .card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .card p strong { color: var(--text); }
+
+  /* ── WHAT IS HTML ── */
+  .analogy-box {
+    background: rgba(77,166,255,0.06);
+    border: 1px solid rgba(77,166,255,0.18);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .analogy-box .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--blue);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  /* ── TAG TABLE ── */
+  .tag-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  @media (max-width: 500px) { .tag-grid { grid-template-columns: 1fr; } }
+  .tag-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+  .tag-item code {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--blue);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .tag-item span {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── CODE BLOCK ── */
+  .code-wrap {
+    margin-top: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .code-bar {
+    background: #0a0a16;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .code-bar .dot-r { width: 10px; height: 10px; border-radius: 50%; background: #ff5f57; }
+  .code-bar .dot-y { width: 10px; height: 10px; border-radius: 50%; background: #febc2e; }
+  .code-bar .dot-g { width: 10px; height: 10px; border-radius: 50%; background: #28c840; }
+  .code-bar span {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    margin-left: 6px;
+  }
+  pre {
+    background: #0a0a16;
+    padding: 20px;
+    overflow-x: auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #c8c8e8;
+  }
+  .hl-tag { color: #4da6ff; }
+  .hl-attr { color: #ff9a6b; }
+  .hl-str { color: #3dff8f; }
+  .hl-com { color: #52526e; font-style: italic; }
+  .hl-text { color: #d4d4e8; }
+
+  /* ── RULES ── */
+  .rule-list {
+    list-style: none;
+    margin-top: 10px;
+  }
+  .rule-list li {
+    font-size: 14px;
+    color: var(--text);
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  .rule-list li:last-child { border-bottom: none; }
+  .rule-list li .icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ── EXERCISE ── */
+  .exercise-card {
+    background: linear-gradient(135deg, #0f1a10, #080f09);
+    border: 2px solid rgba(61,255,143,0.3);
+    border-radius: 12px;
+    padding: 28px 26px;
+    margin-top: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .exercise-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(61,255,143,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .ex-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ex-badge::before {
+    content: '';
+    width: 20px; height: 2px;
+    background: var(--green);
+  }
+  .exercise-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .exercise-card p {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .step-list {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+  .step-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(61,255,143,0.1);
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .step-list li:last-child { border-bottom: none; }
+  .step-num {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: rgba(61,255,143,0.15);
+    border: 1px solid rgba(61,255,143,0.3);
+    color: var(--green);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .submit-box {
+    background: rgba(61,255,143,0.07);
+    border: 1px dashed rgba(61,255,143,0.3);
+    border-radius: 8px;
+    padding: 16px 18px;
+    font-size: 14px;
+    color: var(--green);
+    line-height: 1.7;
+  }
+  .submit-box strong { color: var(--white); }
+
+  /* ── REMEMBER ── */
+  .remember {
+    background: rgba(255,209,102,0.05);
+    border-left: 3px solid var(--yellow);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .remember strong { color: var(--yellow); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 32px 20px;
+    border-top: 1px solid var(--border);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+  footer span { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="journey-badge">🚀 Today, We Begin</div>
+  <h1>Week <span>1</span> · Day <span>1</span></h1>
+  <div class="hero-sub">HTML Structure · Full-Stack Roadmap · Phase 1</div>
+  <div class="hero-message">
+    Today is not just another day. <strong>Today is Day 1 of your journey to becoming a full-stack developer.</strong> Every professional developer you admire started exactly where you are right now — staring at a blank screen. Read everything on this page. Study it. Then build. Let's go. 💪
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- SECTION 1: WHAT IS HTML -->
+  <div class="sec-head">
+    <div class="sec-num">01</div>
+    <div class="sec-title">What is HTML?</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot blue"></span>The Simple Definition</div>
+    <p><strong>HTML = HyperText Markup Language.</strong> It is the skeleton of every webpage on the internet. It tells the browser: <em>"here is a heading, here is a paragraph, here is an image."</em> Every website you have ever visited — Google, YouTube, Instagram — is built on HTML at its core.</p>
+    <div class="analogy-box">
+      <div class="label">💡 Think of it this way</div>
+      If a webpage were a house — HTML is the walls, floors, and rooms. CSS is the paint and furniture. JavaScript is the electricity and plumbing. Today we build the house structure.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot blue"></span>How HTML Works</div>
+    <p>HTML uses <strong>tags</strong> to label content. Tags come in pairs — an opening tag and a closing tag. The browser reads these tags and knows how to display the content.</p>
+    <div class="code-wrap" style="margin-top:12px;">
+      <div class="code-bar"><div class="dot-r"></div><div class="dot-y"></div><div class="dot-g"></div><span>example</span></div>
+      <pre><span class="hl-tag">&lt;h1&gt;</span><span class="hl-text">This is a heading</span><span class="hl-tag">&lt;/h1&gt;</span>
+<span class="hl-tag">&lt;p&gt;</span><span class="hl-text">This is a paragraph of text.</span><span class="hl-tag">&lt;/p&gt;</span>
+<span class="hl-tag">&lt;a </span><span class="hl-attr">href</span>=<span class="hl-str">"https://google.com"</span><span class="hl-tag">&gt;</span><span class="hl-text">Click me</span><span class="hl-tag">&lt;/a&gt;</span></pre>
+    </div>
+    <p style="margin-top:10px;">Opening tag: <code style="font-family:'Space Mono',monospace;color:var(--blue);font-size:12px;">&lt;h1&gt;</code> &nbsp;·&nbsp; Closing tag: <code style="font-family:'Space Mono',monospace;color:var(--blue);font-size:12px;">&lt;/h1&gt;</code> &nbsp;·&nbsp; The content goes in between.</p>
+  </div>
+
+  <!-- SECTION 2: THE TAGS -->
+  <div class="sec-head">
+    <div class="sec-num">02</div>
+    <div class="sec-title">Tags You Must Learn Today</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>The Document Structure Tags</div>
+    <p>Every single HTML file you ever write must start with these — no exceptions.</p>
+    <div class="tag-grid">
+      <div class="tag-item"><code>&lt;!DOCTYPE html&gt;</code><span>Tells the browser: this is HTML5. Always first line.</span></div>
+      <div class="tag-item"><code>&lt;html&gt;</code><span>Wraps the entire page. Everything lives inside this.</span></div>
+      <div class="tag-item"><code>&lt;head&gt;</code><span>Hidden info: page title, links to CSS. Not visible on page.</span></div>
+      <div class="tag-item"><code>&lt;body&gt;</code><span>Everything visible on the page goes here.</span></div>
+      <div class="tag-item"><code>&lt;title&gt;</code><span>The tab name in your browser.</span></div>
+      <div class="tag-item"><code>&lt;meta charset&gt;</code><span>Handles special characters. Always include it.</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot yellow"></span>Semantic Tags — Give Your Page Meaning</div>
+    <p>Semantic tags tell the browser <em>what role</em> each section plays. Professional developers always use these instead of just using generic divs.</p>
+    <div class="tag-grid">
+      <div class="tag-item"><code>&lt;header&gt;</code><span>The top of the page — logo, site name, navigation.</span></div>
+      <div class="tag-item"><code>&lt;nav&gt;</code><span>Navigation links — menu items.</span></div>
+      <div class="tag-item"><code>&lt;main&gt;</code><span>The primary content of the page.</span></div>
+      <div class="tag-item"><code>&lt;section&gt;</code><span>A distinct section of content e.g. About, Skills.</span></div>
+      <div class="tag-item"><code>&lt;article&gt;</code><span>A self-contained piece of content e.g. a blog post.</span></div>
+      <div class="tag-item"><code>&lt;footer&gt;</code><span>Bottom of the page — copyright, contacts, links.</span></div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: FULL SKELETON -->
+  <div class="sec-head">
+    <div class="sec-num">03</div>
+    <div class="sec-title">The HTML Skeleton — Study This</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot green"></span>This is what every webpage starts with</div>
+    <p>Read every line. Understand what each tag does before you type it.</p>
+    <div class="code-wrap">
+      <div class="code-bar"><div class="dot-r"></div><div class="dot-y"></div><div class="dot-g"></div><span>index.html</span></div>
+      <pre><span class="hl-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="hl-tag">&lt;html </span><span class="hl-attr">lang</span>=<span class="hl-str">"en"</span><span class="hl-tag">&gt;</span>
+
+  <span class="hl-tag">&lt;head&gt;</span>
+    <span class="hl-tag">&lt;meta </span><span class="hl-attr">charset</span>=<span class="hl-str">"UTF-8"</span><span class="hl-tag">/&gt;</span>
+    <span class="hl-tag">&lt;title&gt;</span><span class="hl-text">My First Webpage</span><span class="hl-tag">&lt;/title&gt;</span>
+  <span class="hl-tag">&lt;/head&gt;</span>
+
+  <span class="hl-tag">&lt;body&gt;</span>
+
+    <span class="hl-tag">&lt;header&gt;</span>
+      <span class="hl-com">&lt;!-- Your name / logo goes here --&gt;</span>
+    <span class="hl-tag">&lt;/header&gt;</span>
+
+    <span class="hl-tag">&lt;nav&gt;</span>
+      <span class="hl-com">&lt;!-- Navigation links go here --&gt;</span>
+    <span class="hl-tag">&lt;/nav&gt;</span>
+
+    <span class="hl-tag">&lt;main&gt;</span>
+
+      <span class="hl-tag">&lt;section&gt;</span>
+        <span class="hl-com">&lt;!-- About Me section --&gt;</span>
+      <span class="hl-tag">&lt;/section&gt;</span>
+
+      <span class="hl-tag">&lt;section&gt;</span>
+        <span class="hl-com">&lt;!-- Skills section --&gt;</span>
+      <span class="hl-tag">&lt;/section&gt;</span>
+
+      <span class="hl-tag">&lt;section&gt;</span>
+        <span class="hl-com">&lt;!-- Hobbies section --&gt;</span>
+      <span class="hl-tag">&lt;/section&gt;</span>
+
+    <span class="hl-tag">&lt;/main&gt;</span>
+
+    <span class="hl-tag">&lt;footer&gt;</span>
+      <span class="hl-com">&lt;!-- Copyright / contact info --&gt;</span>
+    <span class="hl-tag">&lt;/footer&gt;</span>
+
+  <span class="hl-tag">&lt;/body&gt;</span>
+
+<span class="hl-tag">&lt;/html&gt;</span></pre>
+    </div>
+    <div class="remember">
+      <strong>⚠️ Important:</strong> This page will look completely blank in the browser right now — and that is CORRECT. You have built the invisible structure. Tomorrow we start filling it with real content.
+    </div>
+  </div>
+
+  <!-- SECTION 4: RULES -->
+  <div class="sec-head">
+    <div class="sec-num">04</div>
+    <div class="sec-title">Rules to Follow While Coding</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card">
+    <ul class="rule-list">
+      <li><span class="icon">⌨️</span><div><strong style="color:var(--white);">Type every line manually.</strong> Do not copy-paste from this guide. Your fingers and brain learn together when you type it yourself.</div></li>
+      <li><span class="icon">🔍</span><div><strong style="color:var(--white);">Indent your code.</strong> Every tag inside another tag should be pushed in with a Tab. This keeps your code readable — like a professional.</div></li>
+      <li><span class="icon">✅</span><div><strong style="color:var(--white);">Always close your tags.</strong> If you open <code style="font-family:'Space Mono',monospace;color:var(--blue);font-size:12px;">&lt;body&gt;</code>, you must close <code style="font-family:'Space Mono',monospace;color:var(--blue);font-size:12px;">&lt;/body&gt;</code>. Missing closing tags cause bugs.</div></li>
+      <li><span class="icon">💾</span><div><strong style="color:var(--white);">Save your file as index.html</strong> — not index.txt, not webpage.html. The name <em>index.html</em> is the standard.</div></li>
+      <li><span class="icon">🌐</span><div><strong style="color:var(--white);">Preview in Chrome.</strong> Right-click your file → Open with Chrome. Or use Live Server if you installed it in VS Code.</div></li>
+      <li><span class="icon">🚫</span><div><strong style="color:var(--white);">Do not skip ahead.</strong> No CSS today. No JavaScript. Just HTML structure. Master the foundation first.</div></li>
+    </ul>
+  </div>
+
+  <!-- SECTION 5: EXERCISE -->
+  <div class="sec-head">
+    <div class="sec-num">05</div>
+    <div class="sec-title">Today's Exercise</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="ex-badge">Your Task</div>
+    <h3>Build Your Personal Profile Page Skeleton</h3>
+    <p>Create a new file called <strong>index.html</strong>. Build a complete HTML skeleton for your own personal profile page. The page should have 4 clearly labelled sections. No styling. No colors. Just clean, correct HTML structure.</p>
+
+    <ul class="step-list">
+      <li>
+        <div class="step-num">1</div>
+        <div>Open VS Code (laptop) or Spck/Acode (phone). Create a new file. Save it as <strong style="color:var(--white);">index.html</strong></div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div>Type the full document structure from memory: <strong style="color:var(--white);">&lt;!DOCTYPE html&gt;, &lt;html&gt;, &lt;head&gt;, &lt;title&gt;, &lt;body&gt;</strong> — in the correct order.</div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div>Inside <strong style="color:var(--white);">&lt;body&gt;</strong>, add a <strong style="color:var(--white);">&lt;header&gt;</strong> with your name inside it using an <strong style="color:var(--white);">&lt;h1&gt;</strong> tag.</div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div>Add a <strong style="color:var(--white);">&lt;nav&gt;</strong> with 3 links inside: About, Skills, Contact. (Links can go nowhere yet — just type them.)</div>
+      </li>
+      <li>
+        <div class="step-num">5</div>
+        <div>Inside <strong style="color:var(--white);">&lt;main&gt;</strong>, create 3 <strong style="color:var(--white);">&lt;section&gt;</strong> blocks — one for About Me, one for Skills, one for Hobbies. Add a short sentence inside each.</div>
+      </li>
+      <li>
+        <div class="step-num">6</div>
+        <div>Add a <strong style="color:var(--white);">&lt;footer&gt;</strong> at the bottom with your name and the year — example: <em style="color:var(--muted);">"© 2025 Edison"</em></div>
+      </li>
+      <li>
+        <div class="step-num">7</div>
+        <div>Open the file in Chrome. It should show plain text — no design. <strong style="color:var(--white);">That is correct.</strong> Check that all your sections appear.</div>
+      </li>
+    </ul>
+
+    <div class="submit-box">
+      📸 <strong>Submit Your Work</strong><br/><br/>
+      Take a <strong>screenshot</strong> of your code in VS Code/Spck AND a screenshot of the page open in the browser. Send both to the group.<br/><br/>
+      <strong>No laptop?</strong> Take a clear photo of your phone screen showing the code and another showing the browser preview. Any photo that shows your work is accepted.<br/><br/>
+      <strong style="color:var(--green);">Caption it:</strong> "Day 1 done. HTML skeleton built. 🚀 #FullStackJourney"
+    </div>
+  </div>
+
+  <!-- SECTION 6: WHAT YOU LEARNED -->
+  <div class="sec-head">
+    <div class="sec-num">06</div>
+    <div class="sec-title">What You Should Know After Today</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card">
+    <ul class="rule-list">
+      <li><span class="icon">✅</span><div>What HTML is and why every webpage needs it</div></li>
+      <li><span class="icon">✅</span><div>How tags work — opening, closing, content in between</div></li>
+      <li><span class="icon">✅</span><div>The difference between &lt;head&gt; and &lt;body&gt;</div></li>
+      <li><span class="icon">✅</span><div>What semantic tags are and why we use them</div></li>
+      <li><span class="icon">✅</span><div>How to create a valid HTML file from a blank screen</div></li>
+      <li><span class="icon">✅</span><div>How to preview your HTML page in a browser</div></li>
+    </ul>
+    <div class="remember" style="margin-top:14px;">
+      <strong>🗓️ Tomorrow — Day 2:</strong> We fill this skeleton with real content. Text, headings, links, paragraphs. Your page will start looking like an actual webpage. Make sure today's skeleton is saved and ready.
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Full-Stack Developer Roadmap &nbsp;·&nbsp; Phase 1 &nbsp;·&nbsp; <span>Week 1 · Day 1</span> &nbsp;·&nbsp; HTML Structure
+</footer>
+
+</body>
+</html>
