@@ -26,8 +26,10 @@
       <!-- Desktop navigation -->
       <nav class="nav-desktop" aria-label="Main navigation">
         <a href="#home" class="nav-link">Home</a>
+        <a href="#schedule" class="nav-link">Schedule</a>
         <a href="#lessons" class="nav-link">Lessons</a>
         <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
       <!-- Mobile hamburger button -->
@@ -47,8 +49,10 @@
     <!-- Mobile navigation menu (hidden by default) -->
     <nav class="nav-mobile" id="mobileMenu" aria-label="Mobile navigation" hidden>
       <a href="#home" class="nav-mobile-link">Home</a>
+      <a href="#schedule" class="nav-mobile-link">Schedule</a>
       <a href="#lessons" class="nav-mobile-link">Lessons</a>
       <a href="#about" class="nav-mobile-link">About</a>
+      <a href="#contact" class="nav-mobile-link">Contact</a>
     </nav>
   </header>
 
@@ -61,8 +65,9 @@
       <div class="hero-badge">Free · Open · Daily</div>
       <h1 class="hero-title">Learn to Build<br /><em>the Web.</em></h1>
       <p class="hero-subtitle">
-        A daily curriculum for absolute beginners. We start with the basics of
-        HTML & CSS and work our way up to full-stack development — one lesson at a time.
+        A structured curriculum for absolute beginners. We start with the basics of
+        HTML &amp; CSS and work our way up to full-stack development — two days per lesson,
+        three classes per week.
       </p>
       <div class="hero-actions">
         <a href="#lessons" class="btn btn-primary">Start Learning</a>
@@ -83,6 +88,90 @@
 
 
   <!-- =============================================
+       CLASS SCHEDULE NOTICE SECTION
+       ============================================= -->
+  <section class="schedule-section" id="schedule">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">Class Schedule</h2>
+        <p class="section-desc">
+          Every lesson is designed to give you time to truly understand — not just rush through.
+        </p>
+      </div>
+
+      <div class="schedule-grid">
+
+        <div class="schedule-card">
+          <div class="schedule-icon">📅</div>
+          <h3 class="schedule-card-title">3 Classes Per Week</h3>
+          <p class="schedule-card-desc">
+            We hold <strong>three live classes every week</strong>. Each week brings you
+            closer to becoming a full-stack developer — one focused session at a time.
+          </p>
+        </div>
+
+        <div class="schedule-card">
+          <div class="schedule-icon">⏳</div>
+          <h3 class="schedule-card-title">2 Days Per Lesson</h3>
+          <p class="schedule-card-desc">
+            Each lesson topic spans <strong>two full days</strong>. Day one you learn and
+            build. Day two you review, practise, and solidify your understanding.
+          </p>
+        </div>
+
+        <div class="schedule-card">
+          <div class="schedule-icon">🗓️</div>
+          <h3 class="schedule-card-title">Weekly Rhythm</h3>
+          <p class="schedule-card-desc">
+            With 3 classes per week and 2 days per lesson, each lesson takes you through
+            Monday–Tuesday, Wednesday–Thursday, and Friday–Saturday respectively.
+          </p>
+        </div>
+
+        <div class="schedule-card highlight-card">
+          <div class="schedule-icon">🎯</div>
+          <h3 class="schedule-card-title">Commitment Required</h3>
+          <p class="schedule-card-desc">
+            Dedicate <strong>4–6 hours per day</strong> to study, coding, and practice.
+            Consistency is the only skill that separates developers who make it from those
+            who quit.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Weekly visual timeline -->
+      <div class="week-timeline" aria-label="Example weekly class breakdown">
+        <div class="timeline-label">Example Week:</div>
+        <div class="timeline-row">
+          <div class="timeline-slot active">
+            <span class="slot-days">Mon – Tue</span>
+            <span class="slot-lesson">Class 1</span>
+          </div>
+          <div class="timeline-divider">→</div>
+          <div class="timeline-slot active">
+            <span class="slot-days">Wed – Thu</span>
+            <span class="slot-lesson">Class 2</span>
+          </div>
+          <div class="timeline-divider">→</div>
+          <div class="timeline-slot active">
+            <span class="slot-days">Fri – Sat</span>
+            <span class="slot-lesson">Class 3</span>
+          </div>
+          <div class="timeline-divider">→</div>
+          <div class="timeline-slot rest">
+            <span class="slot-days">Sunday</span>
+            <span class="slot-lesson">Rest &amp; Review</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =============================================
        LESSONS SECTION
        ============================================= -->
   <section class="lessons-section" id="lessons">
@@ -93,293 +182,610 @@
         <span class="section-label">The Curriculum</span>
         <h2 class="section-title">Daily Lessons</h2>
         <p class="section-desc">
-          Each lesson builds on the last. Expand any day below to read, study,
-          and practice.
+          Each lesson runs for two days and builds on the last. Expand any lesson below
+          to read, study, and practise. New lessons are added each week.
         </p>
       </div>
 
+
       <!-- ==========================================
-           LESSON TEMPLATE — copy from here…
-           ========================================== -->
+           HOW TO ADD A NEW LESSON
+           ============================================
+           1. Copy any <article class="lesson-card"> block.
+           2. Change the id, aria-controls, and body id to the next day number.
+           3. Update day numbers, lesson title, and content inside.
+           4. The CSS handles all styling automatically.
+           =========================================== -->
 
-      <!-- ── DAY 1 ─────────────────────────────── -->
-      <article class="lesson-card" id="day1">
-        <!-- Clicking this button toggles the lesson body -->
-        <button
-          class="lesson-toggle"
-          aria-expanded="false"
-          aria-controls="day1-body"
-        >
-          <div class="lesson-meta">
-            <span class="lesson-day">Day 01 & 02</span>
-            <h3 class="lesson-title">What is HTML?</h3>
-          </div>
-          <span class="lesson-chevron" aria-hidden="true">&#8964;</span>
-        </button>
 
-        <!-- Lesson body (collapsed by default) -->
-        <div class="lesson-body" id="day1-body" hidden>
+      <!-- ══════════════════════════════════════════
+           WEEK 1 — HTML Fundamentals (Part 1)
+           3 lessons · Days 1–6
+           Topic: Structure, Text & Lists, Images & Links
+           ══════════════════════════════════════════ -->
+      <div class="week-block" id="week1">
+        <div class="week-header">
+          <span class="week-badge">Week 1</span>
+          <h3 class="week-title">HTML Fundamentals — Part 1</h3>
+          <p class="week-meta">3 Lessons &nbsp;·&nbsp; Days 1 – 6 &nbsp;·&nbsp; HTML Only</p>
+        </div>
 
-          <!-- 1. Objective -->
-          <div class="lesson-block objective-block">
-            <h4 class="block-label">🎯 Objective</h4>
-            <p>
-              By the end of this lesson you will understand what HTML is, why it
-              exists, and how to create your very first web page with just a text
-              editor.
-            </p>
-          </div>
 
-          <!-- 2. Explanation -->
-          <div class="lesson-block">
-            <h4 class="block-label">📖 Explanation</h4>
-            <p>
-              <strong>HTML</strong> stands for <em>HyperText Markup Language</em>.
-              It is the standard language used to create and structure content on
-              the web. Think of HTML as the skeleton of a web page — it gives
-              everything its shape and meaning.
-            </p>
-            <p>
-              HTML is made up of <strong>elements</strong>. Each element is
-              written using <strong>tags</strong>. Most tags come in pairs: an
-              opening tag <code>&lt;tag&gt;</code> and a closing tag
-              <code>&lt;/tag&gt;</code>, with the content in between.
-            </p>
-            <p>
-              Every HTML document starts with a standard boilerplate. The
-              browser reads this top-to-bottom to know what to display.
-            </p>
-          </div>
+        <!-- ── LESSON 1 — Days 1 & 2 ─────────────────── -->
+        <article class="lesson-card" id="day1">
+          <button class="lesson-toggle" aria-expanded="false" aria-controls="day1-body">
+            <div class="lesson-meta">
+              <span class="lesson-day">Days 01 &amp; 02</span>
+              <h3 class="lesson-title">What is HTML? — Structure &amp; Boilerplate</h3>
+            </div>
+            <span class="lesson-chevron" aria-hidden="true">&#8964;</span>
+          </button>
 
-          <!-- 3. Code Example -->
-          <div class="lesson-block">
-            <h4 class="block-label">💻 Code Example</h4>
-            <pre class="code-block"><code><span class="c-tag">&lt;!DOCTYPE html&gt;</span>
+          <div class="lesson-body" id="day1-body" hidden>
+
+            <div class="lesson-block objective-block">
+              <h4 class="block-label">🎯 Objective</h4>
+              <p>
+                Understand what HTML is, why it exists, and how to write a proper
+                HTML document from scratch using the correct boilerplate structure.
+              </p>
+              <p class="day-split-note">
+                <strong>Day 1:</strong> Learn the concepts. Write and run the boilerplate in your browser.
+                &nbsp;|&nbsp;
+                <strong>Day 2:</strong> Practise independently. Build your own bare-bones webpage skeleton.
+              </p>
+            </div>
+
+            <div class="lesson-block">
+              <h4 class="block-label">📖 Explanation</h4>
+              <p>
+                <strong>HTML</strong> stands for <em>HyperText Markup Language</em>.
+                It is the standard language used to create and structure content on
+                the web. Think of HTML as the <strong>skeleton</strong> of a web page —
+                it gives everything its shape and meaning, but no colour or style yet.
+                That comes later with CSS.
+              </p>
+              <p>
+                HTML is made up of <strong>elements</strong>. Each element is written
+                using <strong>tags</strong>. Most tags come in pairs: an opening tag
+                <code>&lt;tag&gt;</code> and a closing tag <code>&lt;/tag&gt;</code>,
+                with content in between. Some tags are self-closing, like
+                <code>&lt;br /&gt;</code> and <code>&lt;img /&gt;</code>.
+              </p>
+              <p>
+                Every HTML document must start with a specific boilerplate — a standard
+                set of lines that tells the browser what kind of document it is reading
+                and how to display it. You will type this boilerplate in every project
+                you ever build.
+              </p>
+              <p>
+                The four key parts of the boilerplate are:
+              </p>
+              <ol class="task-list">
+                <li><code>&lt;!DOCTYPE html&gt;</code> — tells the browser this is a modern HTML5 document.</li>
+                <li><code>&lt;html&gt;</code> — the root element that wraps everything.</li>
+                <li><code>&lt;head&gt;</code> — contains invisible information about the page (title, character set, linked files).</li>
+                <li><code>&lt;body&gt;</code> — contains everything the user actually <em>sees</em> on the page.</li>
+              </ol>
+            </div>
+
+            <div class="lesson-block">
+              <h4 class="block-label">💻 Code Example</h4>
+              <pre class="code-block"><code><span class="c-tag">&lt;!DOCTYPE html&gt;</span>
 <span class="c-tag">&lt;html</span> <span class="c-attr">lang</span>=<span class="c-str">"en"</span><span class="c-tag">&gt;</span>
-<span class="c-tag">&lt;head&gt;</span>
-  <span class="c-tag">&lt;meta</span> <span class="c-attr">charset</span>=<span class="c-str">"UTF-8"</span> <span class="c-tag">/&gt;</span>
-  <span class="c-tag">&lt;title&gt;</span>My First Page<span class="c-tag">&lt;/title&gt;</span>
-<span class="c-tag">&lt;/head&gt;</span>
-<span class="c-tag">&lt;body&gt;</span>
-  <span class="c-tag">&lt;h1&gt;</span>Hello, World!<span class="c-tag">&lt;/h1&gt;</span>
-  <span class="c-tag">&lt;p&gt;</span>This is my first web page.<span class="c-tag">&lt;/p&gt;</span>
-<span class="c-tag">&lt;/body&gt;</span>
+
+  <span class="c-tag">&lt;head&gt;</span>
+    <span class="c-tag">&lt;meta</span> <span class="c-attr">charset</span>=<span class="c-str">"UTF-8"</span> <span class="c-tag">/&gt;</span>
+    <span class="c-tag">&lt;meta</span> <span class="c-attr">name</span>=<span class="c-str">"viewport"</span> <span class="c-attr">content</span>=<span class="c-str">"width=device-width, initial-scale=1.0"</span> <span class="c-tag">/&gt;</span>
+    <span class="c-tag">&lt;title&gt;</span>My First Page<span class="c-tag">&lt;/title&gt;</span>
+  <span class="c-tag">&lt;/head&gt;</span>
+
+  <span class="c-tag">&lt;body&gt;</span>
+    <span class="c-tag">&lt;h1&gt;</span>Hello, World!<span class="c-tag">&lt;/h1&gt;</span>
+    <span class="c-tag">&lt;p&gt;</span>This is my very first web page.<span class="c-tag">&lt;/p&gt;</span>
+  <span class="c-tag">&lt;/body&gt;</span>
+
 <span class="c-tag">&lt;/html&gt;</span></code></pre>
-            <p class="code-caption">
-              Save this as <code>index.html</code> and open it in your browser.
-              You should see "Hello, World!" as a big heading!
-            </p>
+              <p class="code-caption">
+                Save this as <code>index.html</code>, open it in Chrome or Firefox, and
+                you will see "Hello, World!" displayed as a large heading. Every project
+                from now on starts with this exact structure.
+              </p>
+            </div>
+
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Practice Task — Day 1</h4>
+              <ol class="task-list">
+                <li>Open VS Code. Create a new folder called <code>week1</code> on your desktop.</li>
+                <li>Inside it, create a file called <code>index.html</code>.</li>
+                <li>Type (never copy-paste!) the full boilerplate above from memory.</li>
+                <li>Change the <code>&lt;title&gt;</code> text to your own name.</li>
+                <li>Change the <code>&lt;h1&gt;</code> to say your name and a greeting.</li>
+                <li>Add a <code>&lt;p&gt;</code> below it with one sentence describing yourself.</li>
+                <li>Open the file in your browser — you just built a web page. 🎉</li>
+              </ol>
+            </div>
+
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Practice Task — Day 2</h4>
+              <ol class="task-list">
+                <li>Close your editor and delete what you wrote.</li>
+                <li>Re-type the boilerplate from memory — no peeking at notes.</li>
+                <li>Add an <code>&lt;h1&gt;</code>, an <code>&lt;h2&gt;</code>, and three <code>&lt;p&gt;</code> tags with any content you like.</li>
+                <li>Open it in the browser and check that it looks correct.</li>
+                <li>Repeat until you can write the boilerplate without any help. This is muscle memory you will use forever.</li>
+              </ol>
+            </div>
+
+          </div><!-- /.lesson-body -->
+        </article>
+        <!-- ── End Lesson 1 ──────────────────────────── -->
+
+
+        <!-- ── LESSON 2 — Days 3 & 4 ─────────────────── -->
+        <article class="lesson-card" id="day3">
+          <button class="lesson-toggle" aria-expanded="false" aria-controls="day3-body">
+            <div class="lesson-meta">
+              <span class="lesson-day">Days 03 &amp; 04</span>
+              <h3 class="lesson-title">HTML Text — Headings, Paragraphs &amp; Lists</h3>
+            </div>
+            <span class="lesson-chevron" aria-hidden="true">&#8964;</span>
+          </button>
+
+          <div class="lesson-body" id="day3-body" hidden>
+
+            <div class="lesson-block objective-block">
+              <h4 class="block-label">🎯 Objective</h4>
+              <p>
+                Learn how to format text using heading tags (h1–h6), paragraphs, bold,
+                italic, and how to build both ordered and unordered lists.
+              </p>
+              <p class="day-split-note">
+                <strong>Day 3:</strong> Study each tag and type every example in your editor.
+                &nbsp;|&nbsp;
+                <strong>Day 4:</strong> Build an "About Me" page using only what you learned today — no looking at the lesson.
+              </p>
+            </div>
+
+            <div class="lesson-block">
+              <h4 class="block-label">📖 Explanation</h4>
+              <p>
+                HTML gives you <strong>six heading levels</strong>: <code>&lt;h1&gt;</code>
+                is the biggest and most important. <code>&lt;h6&gt;</code> is the smallest.
+                Use only one <code>&lt;h1&gt;</code> per page — it tells the browser (and
+                search engines) what the page is mainly about.
+              </p>
+              <p>
+                For normal body text, use the <code>&lt;p&gt;</code> (paragraph) tag.
+                Each <code>&lt;p&gt;</code> automatically adds space above and below it.
+              </p>
+              <p>
+                To add emphasis inside text, use <code>&lt;strong&gt;</code> for
+                <strong>bold/important</strong> content and <code>&lt;em&gt;</code>
+                for <em>italic/emphasis</em>. These are <em>semantic</em> tags —
+                they carry meaning, not just visual style.
+              </p>
+              <p>
+                Lists come in two types. An <strong>unordered list</strong>
+                <code>&lt;ul&gt;</code> creates bullet points. An
+                <strong>ordered list</strong> <code>&lt;ol&gt;</code> creates numbered
+                steps. Each item in both types uses the <code>&lt;li&gt;</code> tag.
+              </p>
+            </div>
+
+            <div class="lesson-block">
+              <h4 class="block-label">💻 Code Example</h4>
+              <pre class="code-block"><code><span class="c-tag">&lt;body&gt;</span>
+
+  <span class="c-comment">&lt;!-- Headings: h1 is the biggest, h6 the smallest --&gt;</span>
+  <span class="c-tag">&lt;h1&gt;</span>My Name Is Edison<span class="c-tag">&lt;/h1&gt;</span>
+  <span class="c-tag">&lt;h2&gt;</span>About Me<span class="c-tag">&lt;/h2&gt;</span>
+  <span class="c-tag">&lt;h3&gt;</span>My Hobbies<span class="c-tag">&lt;/h3&gt;</span>
+
+  <span class="c-comment">&lt;!-- Paragraph with emphasis --&gt;</span>
+  <span class="c-tag">&lt;p&gt;</span>
+    I am learning <span class="c-tag">&lt;strong&gt;</span>HTML<span class="c-tag">&lt;/strong&gt;</span> and I find it
+    <span class="c-tag">&lt;em&gt;</span>very exciting<span class="c-tag">&lt;/em&gt;</span>.
+  <span class="c-tag">&lt;/p&gt;</span>
+
+  <span class="c-comment">&lt;!-- Unordered list = bullet points --&gt;</span>
+  <span class="c-tag">&lt;h3&gt;</span>My Favourite Foods<span class="c-tag">&lt;/h3&gt;</span>
+  <span class="c-tag">&lt;ul&gt;</span>
+    <span class="c-tag">&lt;li&gt;</span>Rice and Cassava Leaf<span class="c-tag">&lt;/li&gt;</span>
+    <span class="c-tag">&lt;li&gt;</span>Bread<span class="c-tag">&lt;/li&gt;</span>
+    <span class="c-tag">&lt;li&gt;</span>Groundnut Soup<span class="c-tag">&lt;/li&gt;</span>
+  <span class="c-tag">&lt;/ul&gt;</span>
+
+  <span class="c-comment">&lt;!-- Ordered list = numbered steps --&gt;</span>
+  <span class="c-tag">&lt;h3&gt;</span>How I Start My Day<span class="c-tag">&lt;/h3&gt;</span>
+  <span class="c-tag">&lt;ol&gt;</span>
+    <span class="c-tag">&lt;li&gt;</span>Wake up at 6am<span class="c-tag">&lt;/li&gt;</span>
+    <span class="c-tag">&lt;li&gt;</span>Exercise for 20 minutes<span class="c-tag">&lt;/li&gt;</span>
+    <span class="c-tag">&lt;li&gt;</span>Open VS Code and code<span class="c-tag">&lt;/li&gt;</span>
+  <span class="c-tag">&lt;/ol&gt;</span>
+
+<span class="c-tag">&lt;/body&gt;</span></code></pre>
+            </div>
+
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Practice Task — Day 3</h4>
+              <ol class="task-list">
+                <li>Open your <code>index.html</code> from Days 1–2.</li>
+                <li>Add an <code>&lt;h2&gt;</code> that says "My Favourite Foods".</li>
+                <li>Below it, create a <code>&lt;ul&gt;</code> with at least 4 food items.</li>
+                <li>Add an <code>&lt;h2&gt;</code> that says "My Daily Routine".</li>
+                <li>Create an <code>&lt;ol&gt;</code> with at least 5 numbered steps.</li>
+                <li>Use <code>&lt;strong&gt;</code> to bold at least one important word in a paragraph.</li>
+                <li>Use <code>&lt;em&gt;</code> to italicise at least one word.</li>
+              </ol>
+            </div>
+
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Practice Task — Day 4</h4>
+              <ol class="task-list">
+                <li>Create a brand new file: <code>about.html</code>.</li>
+                <li>Write the full boilerplate from memory.</li>
+                <li>Build a complete "About Me" page with: your name as <code>&lt;h1&gt;</code>, at least 3 sections with <code>&lt;h2&gt;</code> headings, at least 2 paragraphs, one unordered list, and one ordered list.</li>
+                <li>Use <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code> at least once each.</li>
+                <li>Open in browser and make sure everything displays correctly.</li>
+              </ol>
+            </div>
+
+          </div><!-- /.lesson-body -->
+        </article>
+        <!-- ── End Lesson 2 ──────────────────────────── -->
+
+
+        <!-- ── LESSON 3 — Days 5 & 6 ─────────────────── -->
+        <article class="lesson-card" id="day5">
+          <button class="lesson-toggle" aria-expanded="false" aria-controls="day5-body">
+            <div class="lesson-meta">
+              <span class="lesson-day">Days 05 &amp; 06</span>
+              <h3 class="lesson-title">Images &amp; Links — Connecting Pages &amp; Adding Media</h3>
+            </div>
+            <span class="lesson-chevron" aria-hidden="true">&#8964;</span>
+          </button>
+
+          <div class="lesson-body" id="day5-body" hidden>
+
+            <div class="lesson-block objective-block">
+              <h4 class="block-label">🎯 Objective</h4>
+              <p>
+                Learn how to add images to a webpage using <code>&lt;img&gt;</code> and
+                how to create clickable links using <code>&lt;a&gt;</code> — both to
+                other websites and between your own pages.
+              </p>
+              <p class="day-split-note">
+                <strong>Day 5:</strong> Study the img and anchor tags. Add images and links to your existing pages.
+                &nbsp;|&nbsp;
+                <strong>Day 6:</strong> Build a hobby page with images and links. Connect it to your About page.
+              </p>
+            </div>
+
+            <div class="lesson-block">
+              <h4 class="block-label">📖 Explanation</h4>
+              <p>
+                The <code>&lt;img&gt;</code> tag is used to display an image. It is a
+                <strong>self-closing tag</strong> — it has no closing tag. It requires
+                two important <strong>attributes</strong>:
+              </p>
+              <ol class="task-list">
+                <li><code>src</code> — the path to the image file (can be a local file or a web URL).</li>
+                <li><code>alt</code> — a text description of the image for screen readers and when the image fails to load. Always include this.</li>
+              </ol>
+              <p>
+                The <code>&lt;a&gt;</code> tag creates a <strong>hyperlink</strong>. The
+                text between the tags is what users click. The <code>href</code> attribute
+                tells the browser where to go. It can point to another website (absolute URL)
+                or another page in your own project (relative path like
+                <code>about.html</code>).
+              </p>
+              <p>
+                To open a link in a new browser tab, add the attribute
+                <code>target="_blank"</code>. Always pair it with
+                <code>rel="noopener"</code> for security.
+              </p>
+            </div>
+
+            <div class="lesson-block">
+              <h4 class="block-label">💻 Code Example</h4>
+              <pre class="code-block"><code><span class="c-tag">&lt;body&gt;</span>
+
+  <span class="c-tag">&lt;h1&gt;</span>My Hobbies<span class="c-tag">&lt;/h1&gt;</span>
+
+  <span class="c-comment">&lt;!-- Image from the web (absolute URL) --&gt;</span>
+  <span class="c-tag">&lt;img</span>
+    <span class="c-attr">src</span>=<span class="c-str">"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/640px-Good_Food_Display_-_NCI_Visuals_Online.jpg"</span>
+    <span class="c-attr">alt</span>=<span class="c-str">"A display of healthy foods"</span>
+    <span class="c-attr">width</span>=<span class="c-str">"400"</span>
+  <span class="c-tag">/&gt;</span>
+
+  <span class="c-comment">&lt;!-- Image from a local file (relative path) --&gt;</span>
+  <span class="c-tag">&lt;img</span> <span class="c-attr">src</span>=<span class="c-str">"images/my-photo.jpg"</span> <span class="c-attr">alt</span>=<span class="c-str">"A photo of me"</span> <span class="c-tag">/&gt;</span>
+
+  <span class="c-comment">&lt;!-- Link to another website (opens in new tab) --&gt;</span>
+  <span class="c-tag">&lt;a</span> <span class="c-attr">href</span>=<span class="c-str">"https://www.google.com"</span> <span class="c-attr">target</span>=<span class="c-str">"_blank"</span> <span class="c-attr">rel</span>=<span class="c-str">"noopener"</span><span class="c-tag">&gt;</span>
+    Visit Google
+  <span class="c-tag">&lt;/a&gt;</span>
+
+  <span class="c-comment">&lt;!-- Link to another page in your own project --&gt;</span>
+  <span class="c-tag">&lt;a</span> <span class="c-attr">href</span>=<span class="c-str">"about.html"</span><span class="c-tag">&gt;</span>Go to my About page<span class="c-tag">&lt;/a&gt;</span>
+
+  <span class="c-comment">&lt;!-- Link that jumps to a section on the same page --&gt;</span>
+  <span class="c-tag">&lt;a</span> <span class="c-attr">href</span>=<span class="c-str">"#hobbies"</span><span class="c-tag">&gt;</span>Jump to Hobbies section<span class="c-tag">&lt;/a&gt;</span>
+
+  <span class="c-comment">&lt;!-- The section being jumped to must have a matching id --&gt;</span>
+  <span class="c-tag">&lt;h2</span> <span class="c-attr">id</span>=<span class="c-str">"hobbies"</span><span class="c-tag">&gt;</span>My Hobbies<span class="c-tag">&lt;/h2&gt;</span>
+
+<span class="c-tag">&lt;/body&gt;</span></code></pre>
+            </div>
+
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Practice Task — Day 5</h4>
+              <ol class="task-list">
+                <li>Open your <code>about.html</code> from Day 4.</li>
+                <li>Add at least 2 images using web URLs (search Google Images, right-click → Copy image address).</li>
+                <li>Make sure every image has a descriptive <code>alt</code> attribute.</li>
+                <li>Add a link to your favourite website, opening in a new tab.</li>
+                <li>Add a link at the top of the page that jumps down to a section further below using an <code>id</code>.</li>
+              </ol>
+            </div>
+
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Practice Task — Day 6 (Mini Project)</h4>
+              <ol class="task-list">
+                <li>Create a new file: <code>hobbies.html</code>.</li>
+                <li>Write the boilerplate from memory.</li>
+                <li>Build a Hobbies page with: a <code>&lt;h1&gt;</code> title, at least 3 hobbies each with an <code>&lt;h2&gt;</code>, a paragraph, and an image.</li>
+                <li>At the bottom of <code>hobbies.html</code>, add a link back to <code>about.html</code>.</li>
+                <li>On <code>about.html</code>, add a link to <code>hobbies.html</code>.</li>
+                <li>You now have two connected pages — a mini website! Test both links in your browser.</li>
+              </ol>
+            </div>
+
+          </div><!-- /.lesson-body -->
+        </article>
+        <!-- ── End Lesson 3 ──────────────────────────── -->
+
+      </div><!-- /.week-block #week1 -->
+
+
+      <!-- ══════════════════════════════════════════
+           WEEK 2 — HTML Fundamentals (Part 2)
+           3 lessons · Days 7–12
+           Topic: Tables, Forms, Semantic HTML & Week Project
+           (UNCOMMENT WHEN WEEK 2 BEGINS)
+           ══════════════════════════════════════════
+
+      <div class="week-block" id="week2">
+        <div class="week-header">
+          <span class="week-badge">Week 2</span>
+          <h3 class="week-title">HTML Fundamentals — Part 2</h3>
+          <p class="week-meta">3 Lessons &nbsp;·&nbsp; Days 7 – 12 &nbsp;·&nbsp; HTML Only</p>
+        </div>
+
+
+        <article class="lesson-card" id="day7">
+          <button class="lesson-toggle" aria-expanded="false" aria-controls="day7-body">
+            <div class="lesson-meta">
+              <span class="lesson-day">Days 07 &amp; 08</span>
+              <h3 class="lesson-title">HTML Tables — Displaying Data in Rows &amp; Columns</h3>
+            </div>
+            <span class="lesson-chevron" aria-hidden="true">&#8964;</span>
+          </button>
+          <div class="lesson-body" id="day7-body" hidden>
+            <div class="lesson-block objective-block">
+              <h4 class="block-label">🎯 Objective</h4>
+              <p>Learn to build HTML tables using table, tr, th, and td. Understand when tables are appropriate (data, not layout).</p>
+              <p class="day-split-note">
+                <strong>Day 7:</strong> Study table structure. Build a simple 3-column table.
+                &nbsp;|&nbsp;
+                <strong>Day 8:</strong> Build a "Class Timetable" table from scratch — no help.
+              </p>
+            </div>
+            <div class="lesson-block">
+              <h4 class="block-label">📖 Explanation</h4>
+              <p>Replace this with the full table lesson explanation.</p>
+            </div>
+            <div class="lesson-block">
+              <h4 class="block-label">💻 Code Example</h4>
+              <pre class="code-block"><code>Replace with table code example.</code></pre>
+            </div>
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Practice Task — Day 7</h4>
+              <ol class="task-list">
+                <li>Add task content here...</li>
+              </ol>
+            </div>
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Practice Task — Day 8</h4>
+              <ol class="task-list">
+                <li>Add task content here...</li>
+              </ol>
+            </div>
           </div>
+        </article>
 
-          <!-- 4. Practice Task -->
-          <div class="lesson-block task-block">
-            <h4 class="block-label">✏️ Practice Task</h4>
-            <ol class="task-list">
-              <li>Create a new file called <code>index.html</code> on your computer.</li>
-              <li>Type (don't copy-paste!) the boilerplate code above.</li>
-              <li>Change the <code>&lt;title&gt;</code> to your own name.</li>
-              <li>Change the <code>&lt;h1&gt;</code> text to a personal greeting.</li>
-              <li>Add a second <code>&lt;p&gt;</code> tag below the first with one sentence about yourself.</li>
-              <li>Open the file in a browser — congratulations, you built a web page! 🎉</li>
-            </ol>
+
+        <article class="lesson-card" id="day9">
+          <button class="lesson-toggle" aria-expanded="false" aria-controls="day9-body">
+            <div class="lesson-meta">
+              <span class="lesson-day">Days 09 &amp; 10</span>
+              <h3 class="lesson-title">HTML Forms — Input, Labels &amp; Buttons</h3>
+            </div>
+            <span class="lesson-chevron" aria-hidden="true">&#8964;</span>
+          </button>
+          <div class="lesson-body" id="day9-body" hidden>
+            <div class="lesson-block objective-block">
+              <h4 class="block-label">🎯 Objective</h4>
+              <p>Build a contact form using form, input, textarea, select, label, and button. Understand form attributes.</p>
+              <p class="day-split-note">
+                <strong>Day 9:</strong> Learn each form element. Build a basic contact form.
+                &nbsp;|&nbsp;
+                <strong>Day 10:</strong> Build a registration form from scratch — no backend yet.
+              </p>
+            </div>
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Practice Task — Day 9</h4>
+              <ol class="task-list">
+                <li>Add task content here...</li>
+              </ol>
+            </div>
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Practice Task — Day 10</h4>
+              <ol class="task-list">
+                <li>Add task content here...</li>
+              </ol>
+            </div>
           </div>
-
-        </div><!-- /.lesson-body -->
-      </article>
-      <!-- ── End Day 1 ──────────────────────────── -->
+        </article>
 
 
-      <!-- ── DAY 2 ─────────────────────────────── -->
-      <article class="lesson-card" id="day2">
-        <button
-          class="lesson-toggle"
-          aria-expanded="false"
-          aria-controls="day2-body"
-        >
-          <div class="lesson-meta">
-            <span class="lesson-day">Day 02</span>
-            <h3 class="lesson-title">HTML Text & Lists</h3>
+        <article class="lesson-card" id="day11">
+          <button class="lesson-toggle" aria-expanded="false" aria-controls="day11-body">
+            <div class="lesson-meta">
+              <span class="lesson-day">Days 11 &amp; 12</span>
+              <h3 class="lesson-title">Semantic HTML &amp; Week 2 Project — Personal Profile Page</h3>
+            </div>
+            <span class="lesson-chevron" aria-hidden="true">&#8964;</span>
+          </button>
+          <div class="lesson-body" id="day11-body" hidden>
+            <div class="lesson-block objective-block">
+              <h4 class="block-label">🎯 Objective</h4>
+              <p>Learn semantic HTML tags: header, nav, main, section, article, aside, footer. Then build your full Personal Profile Page project.</p>
+              <p class="day-split-note">
+                <strong>Day 11:</strong> Learn semantic tags and restructure your existing pages.
+                &nbsp;|&nbsp;
+                <strong>Day 12:</strong> Build your Week 2 Project — a complete multi-section personal profile page in pure HTML.
+              </p>
+            </div>
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Practice Task — Day 11</h4>
+              <ol class="task-list">
+                <li>Add task content here...</li>
+              </ol>
+            </div>
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Week 2 Project — Day 12</h4>
+              <ol class="task-list">
+                <li>Build a full personal profile page using only HTML.</li>
+                <li>Must include: header with nav, main section with About / Skills / Hobbies / Contact, footer.</li>
+                <li>Use only semantic tags — no divs yet.</li>
+                <li>Include a working contact form and at least 3 images.</li>
+                <li>Push to GitHub as your first real repo.</li>
+              </ol>
+            </div>
           </div>
-          <span class="lesson-chevron" aria-hidden="true">&#8964;</span>
-        </button>
+        </article>
 
-        <div class="lesson-body" id="day2-body" hidden>
 
-          <div class="lesson-block objective-block">
-            <h4 class="block-label">🎯 Objective</h4>
-            <p>
-              Learn how to format text using HTML heading tags, paragraphs,
-              bold, italic, and how to create ordered and unordered lists.
-            </p>
+      </div>
+
+      --><!-- END WEEK 2 — uncomment when ready -->
+
+
+      <!-- ══════════════════════════════════════════
+           WEEK 3 — CSS Styling & Responsive Design
+           (UNCOMMENT WHEN WEEK 3 BEGINS — after 2 HTML weeks)
+           ══════════════════════════════════════════
+
+      <div class="week-block" id="week3">
+        <div class="week-header">
+          <span class="week-badge">Week 3</span>
+          <h3 class="week-title">CSS Styling &amp; Responsive Design</h3>
+          <p class="week-meta">3 Lessons &nbsp;·&nbsp; Days 13 – 18 &nbsp;·&nbsp; Phase 1: Beginner</p>
+        </div>
+
+        <article class="lesson-card" id="day13">
+          <button class="lesson-toggle" aria-expanded="false" aria-controls="day13-body">
+            <div class="lesson-meta">
+              <span class="lesson-day">Days 13 &amp; 14</span>
+              <h3 class="lesson-title">CSS Basics — Selectors, Colours &amp; Fonts</h3>
+            </div>
+            <span class="lesson-chevron" aria-hidden="true">&#8964;</span>
+          </button>
+          <div class="lesson-body" id="day13-body" hidden>
+            <div class="lesson-block objective-block">
+              <h4 class="block-label">🎯 Objective</h4>
+              <p>Understand what CSS is. Write CSS selectors, apply colours and font properties. Style your Week 1 & 2 HTML pages.</p>
+              <p class="day-split-note">
+                <strong>Day 13:</strong> Learn CSS syntax, selectors, and link a stylesheet.
+                &nbsp;|&nbsp;
+                <strong>Day 14:</strong> Style your personal profile page with colours and fonts.
+              </p>
+            </div>
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Practice Task</h4>
+              <ol class="task-list">
+                <li>Add content here when CSS week begins...</li>
+              </ol>
+            </div>
           </div>
+        </article>
 
-          <div class="lesson-block">
-            <h4 class="block-label">📖 Explanation</h4>
-            <p>
-              HTML provides <strong>six heading levels</strong>: <code>&lt;h1&gt;</code>
-              through <code>&lt;h6&gt;</code>. <code>&lt;h1&gt;</code> is the most
-              important (biggest) and should appear only once per page. Use
-              headings to create a clear hierarchy of content.
-            </p>
-            <p>
-              To emphasise text, use <code>&lt;strong&gt;</code> for
-              <strong>bold importance</strong> and <code>&lt;em&gt;</code> for
-              <em>italic emphasis</em>. These are <em>semantic</em> tags — they
-              tell the browser (and screen readers) that the content has special
-              meaning, not just visual styling.
-            </p>
-            <p>
-              Lists come in two flavours:
-              <strong>unordered</strong> (<code>&lt;ul&gt;</code>) for bullet points
-              and <strong>ordered</strong> (<code>&lt;ol&gt;</code>) for numbered
-              steps. Each item inside either type uses an <code>&lt;li&gt;</code> tag.
-            </p>
+        <article class="lesson-card" id="day15">
+          <button class="lesson-toggle" aria-expanded="false" aria-controls="day15-body">
+            <div class="lesson-meta">
+              <span class="lesson-day">Days 15 &amp; 16</span>
+              <h3 class="lesson-title">Box Model &amp; Flexbox Layout</h3>
+            </div>
+            <span class="lesson-chevron" aria-hidden="true">&#8964;</span>
+          </button>
+          <div class="lesson-body" id="day15-body" hidden>
+            <div class="lesson-block objective-block">
+              <h4 class="block-label">🎯 Objective</h4>
+              <p>Master the CSS box model. Use flexbox to create layouts.</p>
+              <p class="day-split-note">
+                <strong>Day 15:</strong> Learn margin, padding, border, and flexbox.
+                &nbsp;|&nbsp;
+                <strong>Day 16:</strong> Build a card layout using flexbox.
+              </p>
+            </div>
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Practice Task</h4>
+              <ol class="task-list">
+                <li>Add content here...</li>
+              </ol>
+            </div>
           </div>
+        </article>
 
-          <div class="lesson-block">
-            <h4 class="block-label">💻 Code Example</h4>
-            <pre class="code-block"><code><span class="c-comment">&lt;!-- Headings --&gt;</span>
-<span class="c-tag">&lt;h1&gt;</span>Main Title<span class="c-tag">&lt;/h1&gt;</span>
-<span class="c-tag">&lt;h2&gt;</span>Sub-heading<span class="c-tag">&lt;/h2&gt;</span>
-<span class="c-tag">&lt;h3&gt;</span>Smaller sub-heading<span class="c-tag">&lt;/h3&gt;</span>
-
-<span class="c-comment">&lt;!-- Emphasis --&gt;</span>
-<span class="c-tag">&lt;p&gt;</span>This word is <span class="c-tag">&lt;strong&gt;</span>bold<span class="c-tag">&lt;/strong&gt;</span>.<span class="c-tag">&lt;/p&gt;</span>
-<span class="c-tag">&lt;p&gt;</span>This word is <span class="c-tag">&lt;em&gt;</span>italic<span class="c-tag">&lt;/em&gt;</span>.<span class="c-tag">&lt;/p&gt;</span>
-
-<span class="c-comment">&lt;!-- Unordered list (bullet points) --&gt;</span>
-<span class="c-tag">&lt;ul&gt;</span>
-  <span class="c-tag">&lt;li&gt;</span>HTML<span class="c-tag">&lt;/li&gt;</span>
-  <span class="c-tag">&lt;li&gt;</span>CSS<span class="c-tag">&lt;/li&gt;</span>
-  <span class="c-tag">&lt;li&gt;</span>JavaScript<span class="c-tag">&lt;/li&gt;</span>
-<span class="c-tag">&lt;/ul&gt;</span>
-
-<span class="c-comment">&lt;!-- Ordered list (numbered) --&gt;</span>
-<span class="c-tag">&lt;ol&gt;</span>
-  <span class="c-tag">&lt;li&gt;</span>Open your text editor<span class="c-tag">&lt;/li&gt;</span>
-  <span class="c-tag">&lt;li&gt;</span>Write your HTML<span class="c-tag">&lt;/li&gt;</span>
-  <span class="c-tag">&lt;li&gt;</span>Save and refresh the browser<span class="c-tag">&lt;/li&gt;</span>
-<span class="c-tag">&lt;/ol&gt;</span></code></pre>
+        <article class="lesson-card" id="day17">
+          <button class="lesson-toggle" aria-expanded="false" aria-controls="day17-body">
+            <div class="lesson-meta">
+              <span class="lesson-day">Days 17 &amp; 18</span>
+              <h3 class="lesson-title">CSS Grid &amp; Responsive Design</h3>
+            </div>
+            <span class="lesson-chevron" aria-hidden="true">&#8964;</span>
+          </button>
+          <div class="lesson-body" id="day17-body" hidden>
+            <div class="lesson-block objective-block">
+              <h4 class="block-label">🎯 Objective</h4>
+              <p>Use CSS Grid and media queries to make pages look great on any screen size.</p>
+              <p class="day-split-note">
+                <strong>Day 17:</strong> Learn CSS Grid and media queries.
+                &nbsp;|&nbsp;
+                <strong>Day 18:</strong> Make your portfolio fully responsive.
+              </p>
+            </div>
+            <div class="lesson-block task-block">
+              <h4 class="block-label">✏️ Practice Task</h4>
+              <ol class="task-list">
+                <li>Add content here...</li>
+              </ol>
+            </div>
           </div>
+        </article>
 
-          <div class="lesson-block task-block">
-            <h4 class="block-label">✏️ Practice Task</h4>
-            <ol class="task-list">
-              <li>Open your <code>index.html</code> from Day 1 inside the <code>&lt;body&gt;</code>.</li>
-              <li>Add an <code>&lt;h2&gt;</code> that says "My Favourite Foods".</li>
-              <li>Below it, create a <code>&lt;ul&gt;</code> with at least 3 food items.</li>
-              <li>Add an <code>&lt;h2&gt;</code> that says "Steps to Make Tea".</li>
-              <li>Create an <code>&lt;ol&gt;</code> with the numbered steps.</li>
-              <li>Use <code>&lt;strong&gt;</code> on one important word in a paragraph.</li>
-            </ol>
-          </div>
+      </div>
 
-        </div><!-- /.lesson-body -->
-      </article>
-      <!-- ── End Day 2 ──────────────────────────── -->
+      --><!-- END WEEK 3 -->
 
-
-      <!-- ── DAY 3 ─────────────────────────────── -->
-      <article class="lesson-card" id="day3">
-        <button
-          class="lesson-toggle"
-          aria-expanded="false"
-          aria-controls="day3-body"
-        >
-          <div class="lesson-meta">
-            <span class="lesson-day">Day 03</span>
-            <h3 class="lesson-title">Intro to CSS — Colours & Fonts</h3>
-          </div>
-          <span class="lesson-chevron" aria-hidden="true">&#8964;</span>
-        </button>
-
-        <div class="lesson-body" id="day3-body" hidden>
-
-          <div class="lesson-block objective-block">
-            <h4 class="block-label">🎯 Objective</h4>
-            <p>
-              Understand what CSS is and how it connects to HTML. Learn to
-              change text colour, background colour, and font properties using
-              CSS rules.
-            </p>
-          </div>
-
-          <div class="lesson-block">
-            <h4 class="block-label">📖 Explanation</h4>
-            <p>
-              <strong>CSS</strong> stands for <em>Cascading Style Sheets</em>.
-              While HTML provides the structure, CSS provides the
-              <strong>style</strong> — colours, fonts, spacing, layout, and more.
-            </p>
-            <p>
-              A CSS rule has two parts: a <strong>selector</strong> (which
-              HTML element to target) and a <strong>declaration block</strong>
-              (the styles to apply). Each declaration is a
-              <strong>property</strong>:<strong>value</strong> pair, separated
-              by a semicolon.
-            </p>
-            <p>
-              The best practice is to write CSS in a separate file (e.g.
-              <code>style.css</code>) and link it to your HTML using a
-              <code>&lt;link&gt;</code> tag inside <code>&lt;head&gt;</code>.
-              This keeps your code organised and lets you style multiple pages
-              from one file.
-            </p>
-          </div>
-
-          <div class="lesson-block">
-            <h4 class="block-label">💻 Code Example</h4>
-            <pre class="code-block"><code><span class="c-comment">/* Link CSS in your HTML &lt;head&gt;: */</span>
-<span class="c-comment">&lt;!-- &lt;link rel="stylesheet" href="style.css" /&gt; --&gt;</span>
-
-<span class="c-comment">/* ── style.css ── */</span>
-
-<span class="c-comment">/* Target the body element */</span>
-<span class="c-selector">body</span> {
-  <span class="c-prop">background-color</span>: <span class="c-val">#fdf6ec</span>;
-  <span class="c-prop">color</span>: <span class="c-val">#2c2c2c</span>;
-  <span class="c-prop">font-family</span>: <span class="c-val">Georgia, serif</span>;
-  <span class="c-prop">font-size</span>: <span class="c-val">18px</span>;
-}
-
-<span class="c-comment">/* Target all h1 elements */</span>
-<span class="c-selector">h1</span> {
-  <span class="c-prop">color</span>: <span class="c-val">#c0392b</span>;  <span class="c-comment">/* a rich red */</span>
-  <span class="c-prop">font-size</span>: <span class="c-val">2.5rem</span>;
-}
-
-<span class="c-comment">/* Target paragraphs */</span>
-<span class="c-selector">p</span> {
-  <span class="c-prop">line-height</span>: <span class="c-val">1.7</span>;
-  <span class="c-prop">margin-bottom</span>: <span class="c-val">1rem</span>;
-}</code></pre>
-          </div>
-
-          <div class="lesson-block task-block">
-            <h4 class="block-label">✏️ Practice Task</h4>
-            <ol class="task-list">
-              <li>Create a new file called <code>style.css</code> in the same folder as <code>index.html</code>.</li>
-              <li>Add the <code>&lt;link&gt;</code> tag inside your HTML <code>&lt;head&gt;</code>.</li>
-              <li>Set a background colour on <code>body</code> using any hex colour you like (try <a href="https://coolors.co" target="_blank" rel="noopener">coolors.co</a> for ideas).</li>
-              <li>Change the <code>h1</code> colour to something bold.</li>
-              <li>Set the <code>font-family</code> on <code>body</code> to <code>Arial, sans-serif</code>.</li>
-              <li>Increase the <code>font-size</code> of paragraphs to <code>1.1rem</code>.</li>
-            </ol>
-          </div>
-
-        </div><!-- /.lesson-body -->
-      </article>
-      <!-- ── End Day 3 ──────────────────────────── -->
-
-      <!-- ============================================
-           …to here when adding a new lesson.
-           Just change the day number, IDs, and content.
-           ============================================ -->
 
       <!-- Coming Soon placeholder -->
       <div class="coming-soon">
         <span class="coming-icon">📅</span>
-        <p>New lessons drop every day. Check back tomorrow!</p>
+        <p>Week 2 — HTML Part 2 (Tables, Forms &amp; Semantic HTML) — coming next week!</p>
       </div>
 
     </div><!-- /.container -->
@@ -400,10 +806,9 @@
           and a text editor.
         </p>
         <p>
-          We publish one lesson every day. Each lesson is self-contained and builds
-          naturally on the previous one. By following along daily, you will go from
-          a complete beginner to a confident developer capable of building real web
-          applications.
+          We hold <strong>three classes every week</strong>. Each lesson spans two full days,
+          giving you time to truly learn — not just follow along. By the end of the programme
+          you will be a confident developer capable of building real web applications.
         </p>
         <p>
           <strong>Completely free. Always will be.</strong>
@@ -411,21 +816,74 @@
       </div>
       <div class="about-stats" aria-label="Course statistics">
         <div class="stat-card">
-          <span class="stat-number">3+</span>
-          <span class="stat-label">Lessons Live</span>
+          <span class="stat-number">3</span>
+          <span class="stat-label">Classes / Week</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">2</span>
+          <span class="stat-label">Days / Lesson</span>
         </div>
         <div class="stat-card">
           <span class="stat-number">100%</span>
           <span class="stat-label">Free</span>
         </div>
         <div class="stat-card">
-          <span class="stat-number">0</span>
-          <span class="stat-label">Prerequisites</span>
-        </div>
-        <div class="stat-card">
           <span class="stat-number">∞</span>
           <span class="stat-label">Potential</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       CONTACT / DEVELOPER SECTION
+       ============================================= -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Contact the Developer</h2>
+        <p class="section-desc">
+          Have a question, suggestion, or want to join the next cohort?
+          Reach out — we'd love to hear from you.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Phone -->
+        <a href="tel:+23275136175" class="contact-card">
+          <div class="contact-icon">📞</div>
+          <div class="contact-info">
+            <span class="contact-label">Phone</span>
+            <span class="contact-value">+232 75 136 175</span>
+          </div>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:banguraprince7@gmail.com" class="contact-card">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-info">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">banguraprince7@gmail.com</span>
+          </div>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/message/PGNAN4IQMPQ4D1" target="_blank" rel="noopener" class="contact-card contact-card--whatsapp">
+          <div class="contact-icon">
+            <!-- WhatsApp SVG icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="#25D366" aria-hidden="true">
+              <path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.49 2.027 7.8L0 32l8.418-2.004A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.77-1.853l-.485-.29-5.003 1.192 1.22-4.87-.317-.5A13.27 13.27 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.815c-.398-.2-2.355-1.163-2.72-1.295-.366-.133-.632-.2-.898.2-.266.398-1.031 1.295-1.264 1.561-.233.266-.465.3-.864.1-.398-.2-1.682-.62-3.203-1.977-1.184-1.056-1.983-2.36-2.215-2.758-.233-.398-.025-.614.175-.812.18-.178.398-.465.598-.698.2-.233.266-.398.398-.664.133-.266.067-.498-.033-.698-.1-.2-.898-2.163-1.23-2.96-.324-.778-.653-.672-.898-.684l-.765-.013c-.266 0-.698.1-1.064.498-.366.398-1.397 1.364-1.397 3.327s1.43 3.858 1.629 4.124c.2.266 2.813 4.295 6.815 6.024.953.412 1.696.658 2.276.842.956.305 1.826.262 2.514.159.767-.114 2.355-.963 2.688-1.893.333-.93.333-1.727.233-1.893-.1-.166-.366-.266-.765-.465z"/>
+            </svg>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">WhatsApp</span>
+            <span class="contact-value">Chat with us directly</span>
+          </div>
+        </a>
+
       </div>
     </div>
   </section>
@@ -438,16 +896,48 @@
     <div class="container footer-inner">
       <p class="footer-brand">&#123;&#125; Dev Learning Hub</p>
       <p class="footer-copy">
-        Built with HTML &amp; CSS — just like you're learning.
+        Built with HTML, CSS &amp; JavaScript — just like you're learning.
         Free forever. Happy coding! 🚀
       </p>
       <nav class="footer-nav" aria-label="Footer navigation">
         <a href="#home" class="footer-link">Home</a>
+        <a href="#schedule" class="footer-link">Schedule</a>
         <a href="#lessons" class="footer-link">Lessons</a>
         <a href="#about" class="footer-link">About</a>
+        <a href="#contact" class="footer-link">Contact</a>
       </nav>
+      <!-- Developer credit -->
+      <div class="footer-dev">
+        <p class="footer-dev-text">
+          Designed &amp; Developed by
+          <strong class="footer-dev-name">Prince Edison</strong>
+        </p>
+        <div class="footer-dev-links">
+          <a href="tel:+23275136175" class="footer-dev-link">+232 75 136 175</a>
+          <span class="footer-dot" aria-hidden="true">·</span>
+          <a href="mailto:banguraprince7@gmail.com" class="footer-dev-link">banguraprince7@gmail.com</a>
+        </div>
+      </div>
     </div>
   </footer>
+
+
+  <!-- =============================================
+       WHATSAPP FLOATING BUTTON
+       ============================================= -->
+  <a
+    href="https://wa.me/message/PGNAN4IQMPQ4D1"
+    target="_blank"
+    rel="noopener"
+    class="whatsapp-float"
+    aria-label="Chat with us on WhatsApp"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="#fff" aria-hidden="true">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.49 2.027 7.8L0 32l8.418-2.004A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.77-1.853l-.485-.29-5.003 1.192 1.22-4.87-.317-.5A13.27 13.27 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.815c-.398-.2-2.355-1.163-2.72-1.295-.366-.133-.632-.2-.898.2-.266.398-1.031 1.295-1.264 1.561-.233.266-.465.3-.864.1-.398-.2-1.682-.62-3.203-1.977-1.184-1.056-1.983-2.36-2.215-2.758-.233-.398-.025-.614.175-.812.18-.178.398-.465.598-.698.2-.233.266-.398.398-.664.133-.266.067-.498-.033-.698-.1-.2-.898-2.163-1.23-2.96-.324-.778-.653-.672-.898-.684l-.765-.013c-.266 0-.698.1-1.064.498-.366.398-1.397 1.364-1.397 3.327s1.43 3.858 1.629 4.124c.2.266 2.813 4.295 6.815 6.024.953.412 1.696.658 2.276.842.956.305 1.826.262 2.514.159.767-.114 2.355-.963 2.688-1.893.333-.93.333-1.727.233-1.893-.1-.166-.366-.266-.765-.465z"/>
+    </svg>
+    <span class="whatsapp-float-label">Chat with us</span>
+  </a>
+
 
   <!-- External JS file -->
   <script src="js/script.js"></script>
